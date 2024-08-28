@@ -8,8 +8,8 @@ public class AccountTest2
         int option;
 
         Account conta3 = new Account();
-        Account conta2 = new Account("Isabela", 1234, 1000);
-        Account conta1 = new Account("Mauricio", 5, 5);
+        Account conta2 = new Account("Isabela", 1000);
+        Account conta1 = new Account("Mauricio", 5);
 
         conta1.printAccount();
         conta2.printAccount();

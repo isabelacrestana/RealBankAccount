@@ -9,16 +9,13 @@ public class Account
 
     public Account()
     {
-        this.accountHolder = "Unknown";
-        this.balance = 0.0;
-        this.password = "0000";
-        this.numAccount = ++nextNumber;
+        this("Unknown", 0.0);
     }
 
-    public Account (String accountHolder, long numAccount, double limit)
+    public Account (String accountHolder, double limit)
     {
         this.accountHolder = accountHolder;
-        this.numAccount = numAccount;
+        this.numAccount = ++nextNumber;
         this.limit = limit;
 
         this.balance = 0.0;
@@ -49,11 +46,6 @@ public class Account
     {
         return balance;
     }
-
-    // public void setBalance(double balance)
-    // {
-    //     this.balance = balance;
-    // }
 
     public double getLimit()
     {
