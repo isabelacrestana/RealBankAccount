@@ -7,9 +7,11 @@ public class AccountTest2
         Scanner input = new Scanner(System.in);
         int option;
 
+        Date novaData = new Date(2005, 2, 2);
+
         Account conta3 = new Account();
-        Account conta2 = new Account("Isabela", 1000);
-        Account conta1 = new Account("Mauricio", 5);
+        Account conta2 = new Account("Isabela", 1000, novaData);
+        Account conta1 = new Account("Mauricio", 5, novaData);
 
         conta1.printAccount();
         conta2.printAccount();

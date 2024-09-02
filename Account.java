@@ -6,13 +6,16 @@ public class Account
     private double limit;
     private String password;
     private static long nextNumber;
+    private Date openingDate;
 
     public Account()
     {
-        this("Unknown", 0.0);
+        this.accountHolder = "Unknown";
+        this.limit = 0.0;
+        this.openingDate = new Date(2000,1,1);
     }
 
-    public Account (String accountHolder, double limit)
+    public Account (String accountHolder, double limit, Date openingDateIn)
     {
         this.accountHolder = accountHolder;
         this.numAccount = ++nextNumber;
@@ -20,6 +23,8 @@ public class Account
 
         this.balance = 0.0;
         this.password = "0000";
+
+        this.openingDate = new Date(openingDateIn.getYear(), openingDateIn.getMonth(), openingDateIn.getDate());
     }
 
     public long getNumAccount()
@@ -60,8 +65,7 @@ public class Account
     public void withdraw(double value)
     {
         if (value > 0)
-        {
-            
+        {            
             if (value <= balance || value <= limit)
             {
                 this.balance -= value;
@@ -101,7 +105,6 @@ public class Account
         {
             System.out.println("Senha incorreta. Senha não pode ser alterada!");
         }
-
     }
 
     public void printAccount()
@@ -109,8 +112,9 @@ public class Account
         System.out.printf("\nAccount %04d:"+
                           "\nAccount Holder: %s"+
                           "\nAccount Balance: $%.2f"+
-                          "\nAccount Limit: $%.2f\n", 
+                          "\nAccount Limit: $%.2f\n"+
+                          "\n%s", 
                           getNumAccount(), getAccountHolder(),
-                          getBalance(), getLimit());
+                          getBalance(), getLimit(), openingDate);
     }
 }
